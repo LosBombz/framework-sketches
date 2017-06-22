@@ -19,7 +19,7 @@ feels much like that API.
     * built in directives could be useful ex: ng-repeat, ng-click, ng-if - though
     this could also be mitigated using control flow packaged with something like
     handlebars or some other templating language with some functionality sprinkled
-    in for user events like click, mouseenter, scroll, etc
+    in for user events like click, mouseenter, scroll, etc.
 2. Services
     * built in services could be useful ex: $window
 3. Router
@@ -34,7 +34,40 @@ feels much like that API.
     * always thought these were a cool way to handle data formatting input in
     transformed output out. can probably just use pure functions and register them?
 
+8. application lifecycle
+9. Providers are used to provide services to components. This can get a little vague as
+Services or component classes could just include an api for such behavior. maybe something like:
+```
+MyComponent.use(Moment);
+```
 
+or just in Component composition
+
+```
+class MyComponent extends Framework.component('MyComponent', [Moment]) {
+    super();
+
+    init function(props, deps) {
+        this.{SomeMethod} = moment;
+    }
+}
+```
+
+10. Modules: angular modules encapsulate all the entities that comprise a module. A module can have 1 to many
+of the previously listed components. Modules are interesting for keeping groups of entities organized and
+accessible to each other. angular lets you define modules like so:
+
+```
+angular.module('myModule', ["dependency-1", "dependency-2"])
+```
+
+and then allows you to get modules like so
+
+```
+angular.module('myModule')
+```
+
+the difference in getter/setter styles is the passing or omitting of an array of dependencies
 
 ### Deviations
 * Immutable state is the hotness, I think it's worth pursuing
