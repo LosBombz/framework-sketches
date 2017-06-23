@@ -1,1 +1,1 @@
-// Entry point for the framework
+// Entry point/business logic for the framework
